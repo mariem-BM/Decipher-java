@@ -10,6 +10,7 @@ import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceOffre;
 import com.mycompany.services.ServiceReclamation;
 import com.mycompany.utils.MyConnection;
+import static java.sql.JDBCType.DATE;
 
 /**
  *
@@ -47,9 +48,35 @@ public class MainClass {
      
      
       //add offre
-      ServiceOffre offre = new ServiceOffre();
+    /*  ServiceOffre offre = new ServiceOffre();
       Offre o = new Offre("offrejava","descripjava",40,5,"2000-11-26","2002-11-26");
-      offre.ajouterOffre(o);
+      offre.ajouterOffre(o);*/
+    
+      
+      //displayy offre
+      
+    /* ServiceOffre offre = new ServiceOffre();
+     System.out.println(offre.afficherOffre());*/
+    
+    
+    //delete offre
+     /* ServiceOffre offre = new ServiceOffre();
+      //reclamation.deleteReclamation(12);
+      offre.deleteOffre(8);*/
+      
+     
+      //update offre
+      ServiceOffre offre = new ServiceOffre();
+      /* Offre o2 = new Offre("offre11","desc11",50,5);
+           o2.setId(11);*/
+           
+            Offre o2 = new Offre("offre9","desc9",50,5);
+           o2.setId(9);
+           offre.updateOffre(o2);
+    
+     
+     
+     
     }
     
 }

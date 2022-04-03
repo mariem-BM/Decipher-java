@@ -5,6 +5,8 @@
  */
 package com.mycompany.entities;
 
+import java.sql.JDBCType;
+
 /**
  *
  * @author ASUS
@@ -37,6 +39,17 @@ public class Offre {
         this.date_debut_offre = date_debut_offre;
         this.date_fin_offre = date_fin_offre;
     }
+
+    public Offre(String nom_offre, String description_offre, double prix_offre, double reduction) {
+        this.nom_offre = nom_offre;
+        this.description_offre = description_offre;
+        this.prix_offre = prix_offre;
+        this.reduction = reduction;
+    }
+
+   
+    
+    
 
     public int getId() {
         return id;
