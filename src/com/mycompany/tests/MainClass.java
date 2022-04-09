@@ -110,12 +110,16 @@ public class MainClass {
       */
     
      //search reclamation selon prix
-      
-    ServiceOffre offre = new ServiceOffre();
-       
-            //System.out.println(reclamation.TrouveEtatReclam("envoye"));
+  /* ServiceOffre offre = new ServiceOffre();
+           //System.out.println(reclamation.TrouveEtatReclam("envoye"));
              System.out.println(offre.TrouvePrixOffre(74));
        
-    }
+    }*/
+  //search 2
+    /* ServiceOffre offre = new ServiceOffre();
+     System.out.println(offre.findByname_Offer("rr"));*/
     
-}
+    
+    ServiceOffre offre = new ServiceOffre();
+     System.out.println(offre.sortByName());
+    }}

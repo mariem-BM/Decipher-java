@@ -15,6 +15,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+
+
 
 /**
  *
@@ -172,12 +176,26 @@ public class ServiceOffre {
             o.setDate_fin_offre(rst.getString("date_fin_offre"));
     
            myList.add(o);
+          //afficherOffre();
       }
          
      return myList;
          }
+         
+      //********* serach offer 2   
+     public Offre findByname_Offer(String nom_offre) {
+
+	return afficherOffre().stream().filter(Offre -> nom_offre.equals(Offre.getNom_offre())).findFirst().get();
+
+    }
+         
      
-      
+      public List<Offre> sortByName() {
+
+	return afficherOffre().stream().sorted((a, b) -> a.getNom_offre().compareTo(b.getNom_offre())).collect(Collectors.toList());
+    }
+
+     
 }
     
 
