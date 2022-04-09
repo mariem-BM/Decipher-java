@@ -82,6 +82,7 @@ public class ServiceReclamation {
             r.setId(rs.getInt(1));
             r.setDescription_reclamation(rs.getString("description_reclamation"));
             r.setEtat_reclamation(rs.getString("etat_reclamation"));
+            r.setDate_reclamation(rs.getString("date_reclamation"));
             myList.add(r);
         }
          //   st = new MyConnection().getCnx().createStatement();
@@ -147,12 +148,64 @@ public class ServiceReclamation {
            
             System.out.println(pst);
             pst.executeUpdate();
+             System.out.println("votre reclam a ete bien modife");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
+      
+     public List<Reclamation> TrouveEtatReclamId(int id) throws SQLException
+        
+         {
+                    List<Reclamation>myList = new ArrayList<>();
+             String requete4="SELECT * FROM `reclamation` WHERE `id`=?";
+               
+              //Statement st = cnx2.createStatement();;
+              PreparedStatement pst = cnx2.prepareStatement(requete4);
+              //PreparedStatement stm=cnx.prepareStatement(req);
+              pst.setInt(1,id);
+      ResultSet rst= pst.executeQuery();
+      while(rst.next())
+      {
+       Reclamation r = new Reclamation();
+            r.setId(rst.getInt(1));
+            r.setDescription_reclamation(rst.getString("description_reclamation"));
+            r.setEtat_reclamation(rst.getString("etat_reclamation"));
+            r.setDate_reclamation(rst.getString("date_reclamation"));
     
+           myList.add(r);
+      }
+         
+     return myList;
+         }
+     
+      
+     public List<Reclamation> TrouveEtatReclam(String etat_reclamation) throws SQLException
+        
+         {
+                    List<Reclamation>myList = new ArrayList<>();
+             String requete5="SELECT * FROM `reclamation` WHERE `etat_reclamation`=?";
+               
+              //Statement st = cnx2.createStatement();;
+              PreparedStatement pst = cnx2.prepareStatement(requete5);
+              //PreparedStatement stm=cnx.prepareStatement(req);
+              pst.setString(1,etat_reclamation);
+      ResultSet rst= pst.executeQuery();
+      while(rst.next())
+      {
+       Reclamation r = new Reclamation();
+            r.setId(rst.getInt(1));
+            r.setDescription_reclamation(rst.getString("description_reclamation"));
+            r.setEtat_reclamation(rst.getString("etat_reclamation"));
+            r.setDate_reclamation(rst.getString("date_reclamation"));
+    
+           myList.add(r);
+      }
+         
+     return myList;
+         }
+     
     }
     
 

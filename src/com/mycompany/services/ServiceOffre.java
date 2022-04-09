@@ -113,6 +113,7 @@ public class ServiceOffre {
            
             System.out.println(pst);
             pst.executeUpdate();
+            System.out.println("votre offre a ete bien modife");
         } catch (SQLException e) {
             e.printStackTrace();
         }
