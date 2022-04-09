@@ -119,6 +119,65 @@ public class ServiceOffre {
         }
 
     }
+      
+         public List<Offre> TrouveOffreId(int id) throws SQLException
+        
+         {
+                    List<Offre>myList = new ArrayList<>();
+             String requete4="SELECT * FROM `offre` WHERE `id`=?";
+               
+              //Statement st = cnx2.createStatement();;
+              PreparedStatement pst = cnx2.prepareStatement(requete4);
+              //PreparedStatement stm=cnx.prepareStatement(req);
+              pst.setInt(1,id);
+      ResultSet rst= pst.executeQuery();
+      while(rst.next())
+      {
+       Offre o = new Offre();
+            o.setId(rst.getInt(1));
+            o.setNom_offre(rst.getString("nom_offre"));
+            o.setDescription_offre(rst.getString("description_offre"));
+            o.setPrix_offre(rst.getDouble("prix_offre"));
+            o.setReduction(rst.getDouble("reduction"));
+            o.setDate_debut_offre(rst.getString("date_debut_offre"));
+            o.setDate_fin_offre(rst.getString("date_fin_offre"));
+    
+           myList.add(o);
+      }
+         
+     return myList;
+         }
+         
+         
+         public List<Offre> TrouvePrixOffre(double prix_offre) throws SQLException
+        
+         {
+                    List<Offre>myList = new ArrayList<>();
+             String requete="SELECT * FROM `offre` WHERE `prix_offre`=?";
+               
+              //Statement st = cnx2.createStatement();;
+              PreparedStatement pst = cnx2.prepareStatement(requete);
+              //PreparedStatement stm=cnx.prepareStatement(req);
+              pst.setDouble(1,prix_offre);
+      ResultSet rst= pst.executeQuery();
+      while(rst.next())
+      {
+       Offre o = new Offre();
+            o.setId(rst.getInt(1));
+            o.setNom_offre(rst.getString("nom_offre"));
+            o.setDescription_offre(rst.getString("description_offre"));
+            o.setPrix_offre(rst.getDouble("prix_offre"));
+            o.setReduction(rst.getDouble("reduction"));
+            o.setDate_debut_offre(rst.getString("date_debut_offre"));
+            o.setDate_fin_offre(rst.getString("date_fin_offre"));
+    
+           myList.add(o);
+      }
+         
+     return myList;
+         }
+     
+      
 }
     
 

@@ -155,7 +155,7 @@ public class ServiceReclamation {
 
     }
       
-     public List<Reclamation> TrouveEtatReclamId(int id) throws SQLException
+     public List<Reclamation> TrouveReclamId(int id) throws SQLException
         
          {
                     List<Reclamation>myList = new ArrayList<>();

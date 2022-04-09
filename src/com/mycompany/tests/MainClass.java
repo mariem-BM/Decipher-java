@@ -50,8 +50,26 @@ public class MainClass {
            r2.setId(21);
            reclamation.updateReclamation(r2);*/
      
+      //search reclamation selon id
+      
+  /*   ServiceReclamation reclamation = new ServiceReclamation();
+        try {
+            System.out.println(reclamation.TrouveReclamId(20));
+        } catch (SQLException ex) {
+            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+      
+    
+     //search reclamation selon etat
+      
+    /* ServiceReclamation reclamation = new ServiceReclamation();
+       
+            //System.out.println(reclamation.TrouveEtatReclam("envoye"));
+             System.out.println(reclamation.TrouveEtatReclam("traite"));
+       */
      
      
+     /**************************************** Offre ***********************************************************/
       //add offre
      /* ServiceOffre offre = new ServiceOffre();
       Offre o = new Offre("offre12","descripjava",40,5,"2000-11-26","2002-11-26");
@@ -81,32 +99,22 @@ public class MainClass {
            offre.updateOffre(o2);*/
            
     
-    // TrouveEtatReclam
-    
-   /*  ServiceReclamation reclamation = new ServiceReclamation();
+    //search reclamation selon id
+      
+  /* ServiceOffre offre = new ServiceOffre();
         try {
-            reclamation.TrouveEtatReclam(22);
-            // offre.TrouveEtatReclam(22);
+            System.out.println(offre.TrouveOffreId(14));
         } catch (SQLException ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-   
-    //displayy offre search selon id
-    /*  
-     ServiceReclamation reclamation = new ServiceReclamation();
-        try {
-            System.out.println(reclamation.TrouveEtatReclamId(20));
-        } catch (SQLException ex) {
-            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-      
+        }
+      */
     
-     //displayy offre search selon etat
+     //search reclamation selon prix
       
-     ServiceReclamation reclamation = new ServiceReclamation();
+    ServiceOffre offre = new ServiceOffre();
        
             //System.out.println(reclamation.TrouveEtatReclam("envoye"));
-             System.out.println(reclamation.TrouveEtatReclam("traite"));
+             System.out.println(offre.TrouvePrixOffre(74));
        
     }
     
