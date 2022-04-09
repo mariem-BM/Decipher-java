@@ -4,6 +4,7 @@ package com.mycompany.tests;
 
 import com.mycompany.utils.MyConnection;
 import java.sql.* ;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -68,10 +69,10 @@ tble.setModel(model);
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtdate_reclamation = new javax.swing.JTextField();
+        txtid = new javax.swing.JTextField();
+        txtdescirption_reclamation = new javax.swing.JTextField();
+        txtetat_reclamation = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -135,41 +136,41 @@ tble.setModel(model);
         getContentPane().add(jPanel2);
         jPanel2.setBounds(10, 22, 204, 361);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtdate_reclamation.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtdate_reclamation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtdate_reclamationActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(290, 190, 120, 20);
+        getContentPane().add(txtdate_reclamation);
+        txtdate_reclamation.setBounds(290, 190, 120, 20);
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtid.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtidActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(290, 40, 120, 21);
+        getContentPane().add(txtid);
+        txtid.setBounds(290, 40, 120, 21);
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtdescirption_reclamation.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtdescirption_reclamation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtdescirption_reclamationActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(290, 90, 120, 20);
+        getContentPane().add(txtdescirption_reclamation);
+        txtdescirption_reclamation.setBounds(290, 90, 120, 20);
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtetat_reclamation.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtetat_reclamation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtetat_reclamationActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(290, 140, 120, 20);
+        getContentPane().add(txtetat_reclamation);
+        txtetat_reclamation.setBounds(290, 140, 120, 20);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Supprimer");
@@ -220,21 +221,21 @@ tble.setModel(model);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtdate_reclamationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdate_reclamationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtdate_reclamationActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtidActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtdescirption_reclamationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdescirption_reclamationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtdescirption_reclamationActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtetat_reclamationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtetat_reclamationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtetat_reclamationActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -242,6 +243,22 @@ tble.setModel(model);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String id=txtid.getText();
+        String description_reclamation=txtdescirption_reclamation.getText();
+        String etat_reclamation=txtetat_reclamation.getText();
+        String date_reclamation=txtdate_reclamation.getText();
+        String requete="insert into reclamation(id,description_reclamation,etat_reclamation,date_reclamation)VALUES('" +id+"','"+description_reclamation+"','"+etat_reclamation+"','"+date_reclamation+"')";
+        
+        try{
+            stm.executeUpdate(requete);
+JOptionPane.showMessageDialog(null,"reclamation bien ajoute");
+/*txtdescirption_reclamation.setText("");
+txtetat_reclamation.setText("");
+txtdate_reclamation.setText("");*/
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -294,10 +311,10 @@ tble.setModel(model);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tble;
+    private javax.swing.JTextField txtdate_reclamation;
+    private javax.swing.JTextField txtdescirption_reclamation;
+    private javax.swing.JTextField txtetat_reclamation;
+    private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 }

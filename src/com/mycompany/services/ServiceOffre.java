@@ -194,6 +194,8 @@ public class ServiceOffre {
 
 	return afficherOffre().stream().sorted((a, b) -> a.getNom_offre().compareTo(b.getNom_offre())).collect(Collectors.toList());
     }
+      
+    
 
      
 }
