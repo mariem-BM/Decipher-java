@@ -45,10 +45,16 @@ public class MainClass {
       */
       
       //update reclam
-     /* ServiceReclamation reclamation = new ServiceReclamation();
-       Reclamation r2 = new Reclamation("reclam modifer","traite");
-           r2.setId(21);
-           reclamation.updateReclamation(r2);*/
+     /*ServiceReclamation reclamation = new ServiceReclamation();
+       Reclamation r3 = new Reclamation("reclam142","");
+           r3.setId(21);
+           reclamation.updateReclamation(r3);*/
+     
+     //update reclam admin
+      ServiceReclamation reclamation = new ServiceReclamation();
+       Reclamation r2 = new Reclamation("traite");
+           r2.setId(141);
+           reclamation.updateReclamationAdmin(r2);
      
       //search reclamation selon id
       
@@ -119,7 +125,7 @@ public class MainClass {
     /* ServiceOffre offre = new ServiceOffre();
      System.out.println(offre.findByname_Offer("rr"));*/
     
-    
-    ServiceOffre offre = new ServiceOffre();
-     System.out.println(offre.sortByName());
+    //Sort by name
+    /*ServiceOffre offre = new ServiceOffre();
+     System.out.println(offre.sortByName());*/
     }}

@@ -8,10 +8,12 @@ package com.mycompany.services;
 import com.mycompany.entities.Reclamation;
 import com.mycompany.utils.MyConnection;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -50,13 +52,16 @@ public class ServiceReclamation {
     public void ajouterReclamation2(Reclamation r){
         
         String requete2 = "INSERT INTO reclamation (description_reclamation,etat_reclamation,date_reclamation) "
-                 + "VALUES(?,?,?)";
+                 + "VALUES(?,'envoye',?)";
         
         try {
            PreparedStatement pst = cnx2.prepareStatement(requete2);  //utilise pour les requete dynamique
            pst.setString(1, r.getDescription_reclamation());
-           pst.setString(2, r.getEtat_reclamation());
-           pst.setString(3, r.getDate_reclamation());
+        //  pst.setString(2, r.getEtat_reclamation());
+         java.sql.Date date_reclamation = getCurrentDatetime(); 
+         pst.setDate(2, date_reclamation);
+          // pst.setString(2, r.getDate_reclamation());
+          
            
            pst.executeUpdate();
            
@@ -135,16 +140,31 @@ public class ServiceReclamation {
     }*/
      
      public void updateReclamation( Reclamation r){
-        String requete2="update reclamation set description_reclamation=?,etat_reclamation=? where id=?";
+        String requete2="update reclamation set description_reclamation=?,etat_reclamation='envoye' where id=?";
         try {
-            
-           // pst=connection.prepareStatement(req);
-           //Statement st = cnx2.createStatement();
+           
             PreparedStatement pst = cnx2.prepareStatement(requete2);
             pst.setString(1,r.getDescription_reclamation()); 
-            pst.setString(2,r.getEtat_reclamation());
+           // pst.setString(2,r.getEtat_reclamation());
            // pst.setString(3,r.getDate_reclamation());
-            pst.setInt(3,r.getId());
+            pst.setInt(2,r.getId());
+           
+            System.out.println(pst);
+            pst.executeUpdate();
+             System.out.println("votre reclam a ete bien modife");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+     
+      public void updateReclamationAdmin( Reclamation r){
+        String requete2="update reclamation set etat_reclamation=? where id=?";
+        try {
+            
+            PreparedStatement pst = cnx2.prepareStatement(requete2);
+            pst.setString(1,r.getEtat_reclamation());
+            pst.setInt(2,r.getId());
            
             System.out.println(pst);
             pst.executeUpdate();
@@ -205,6 +225,11 @@ public class ServiceReclamation {
          
      return myList;
          }
+
+    private Date getCurrentDatetime() {
+        java.util.Date today = new java.util.Date();
+    return new java.sql.Date(today.getTime());
+    }
      
      
     

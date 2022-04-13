@@ -47,8 +47,14 @@ public class Reclamation {
         this.etat_reclamation = etat_reclamation;
     }
 
+    public Reclamation(String etat_reclamation) {
+        this.etat_reclamation = etat_reclamation;
+    }
 
-    
+/*public Reclamation(String description_reclamation) {
+        this.description_reclamation = description_reclamation;
+    }
+    */
 
     public int getId() {
         return id;
