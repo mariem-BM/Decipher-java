@@ -74,7 +74,8 @@ public class AjoutReclamationFXMLController implements Initializable {
        a.setTitle("reclamation bien ajoutée");
       // JOptionPane.showMessageDialog(null,"reclamation bien ajoute");
       a.show();*/
-      
+   
+         
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("réclamer");
             alert.setHeaderText(null);

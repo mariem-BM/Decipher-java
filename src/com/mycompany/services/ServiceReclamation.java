@@ -110,8 +110,8 @@ public class ServiceReclamation {
             e.printStackTrace();
         }
 */
-    public void deleteReclamation(int id) {
-        String req = "delete from reclamation where id=" + id;
+    public void deleteReclamation(Reclamation r) {
+       /* String req = "delete from reclamation where id=" + id;
         try {
             PreparedStatement pst = cnx2.prepareStatement(req);
            // pst = Connection.createStatement();
@@ -121,7 +121,17 @@ public class ServiceReclamation {
         } catch (SQLException ex) {
             //Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
              System.err.println(ex.getMessage());
-        }
+        }*/
+       String req ="delete from reclamation where id= ?";
+         try {
+            PreparedStatement pst=cnx2.prepareStatement(req);
+             int id = r.getId();
+             pst.setInt(1,id);
+             pst.executeUpdate();
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
     
     /* public void updateReclamation(Reclamation r) {

@@ -21,10 +21,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -34,11 +36,11 @@ import javafx.stage.Stage;
 public class AfficherReclamationFXMLController implements Initializable {
 
     @FXML
-    private TableView<?> tableaureclam;
+    private TableView<Reclamation> tableaureclam;
     @FXML
-    private TableColumn<?, ?> description_reclamcol;
+    private TableColumn<Reclamation,String> description_reclamcol;
     @FXML
-    private TableColumn<?, ?> etat_reclamcol;
+    private TableColumn<Reclamation, String> etat_reclamcol;
     @FXML
     private TableColumn<?, ?> date_reclamcol;
     
@@ -50,9 +52,36 @@ public class AfficherReclamationFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
        afficherReclam();
     }    
+    
+      @FXML
+    private void delete(ActionEvent event) {
+         ServiceReclamation sr = new ServiceReclamation();
+        Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
+        sr.deleteReclamation(r);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           /* alert.setTitle("suppression");
+            alert.setHeaderText(null);
+            alert.setContentText("Votre réclamation a ete bien supprime");
+            alert.showAndWait();*/
+         
+               try {
+             if(JOptionPane.showConfirmDialog(null,"attention vous avez supprimer votre reclamation,est ce que tu et sure?"
+                     ,"supprimer reclamation",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
+         
+            if(r.getDescription_reclamation().length() != 0){
+       
+         alert.setContentText("Votre réclamation a ete bien supprime");
+         JOptionPane.showMessageDialog(null,"reclamation supprime");
+             }//ca est pour recharger la list des stagiaire
+            else { JOptionPane.showMessageDialog(null,"veuillez remplire le champ id !");}
+        
+        }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
+       
+    
+    }
+    
     private void afficherReclam() {
       /* ServiceReclamation sr = new ServiceReclamation();
         ObservableList<Reclamation> o = FXCollections.observableArrayList(sr.afficherReclamation());*/
@@ -66,13 +95,6 @@ public class AfficherReclamationFXMLController implements Initializable {
          date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
         
     }
-    
-    @FXML
-    private void AjouterReclam(ActionEvent event) {
-        myList.add(new Reclamation( "recl", "prenom"));
-    }
-       
- 
   /*  private void Show(ActionEvent event) {
        ServiceReclamation sr = new ServiceReclamation();
         ObservableList<Reclamation> oc = FXCollections.observableArrayList(sr.afficherReclamation());
@@ -83,4 +105,5 @@ public class AfficherReclamationFXMLController implements Initializable {
         tableaureclam.setItems(oc);
     }*/
    
+  
 }
