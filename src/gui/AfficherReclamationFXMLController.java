@@ -7,8 +7,10 @@ package gui;
 
 import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceReclamation;
+import com.mycompany.utils.MyConnection;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -22,6 +24,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -45,6 +48,8 @@ public class AfficherReclamationFXMLController implements Initializable {
     private TableColumn<?, ?> date_reclamcol;
     
     ObservableList myList ;
+    @FXML
+    private Button refreshButton;
 
     /**
      * Initializes the controller class.
@@ -61,13 +66,8 @@ public class AfficherReclamationFXMLController implements Initializable {
         Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
         sr.deleteReclamation(r);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           /* alert.setTitle("suppression");
-            alert.setHeaderText(null);
-            alert.setContentText("Votre réclamation a ete bien supprime");
-            alert.showAndWait();*/
-         
-               try {
-             if(JOptionPane.showConfirmDialog(null,"attention vous avez supprimer votre reclamation,est ce que tu et sure?"
+                 try {
+             if(JOptionPane.showConfirmDialog(null,"attention vous allez supprimer votre reclamation,est ce que tu et sure?"
                      ,"supprimer reclamation",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
          
             if(r.getDescription_reclamation().length() != 0){
@@ -95,15 +95,89 @@ public class AfficherReclamationFXMLController implements Initializable {
          date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
         
     }
-  /*  private void Show(ActionEvent event) {
-       ServiceReclamation sr = new ServiceReclamation();
-        ObservableList<Reclamation> oc = FXCollections.observableArrayList(sr.afficherReclamation());
-       description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description reclamation"));
-       etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat reclamation"));
-        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date reclamation"));
+    
+    @FXML
+     private void modifierReclam(ActionEvent event) {
+     Reclamation r = tableaureclam.getSelectionModel().getSelectedItem();
+         
+
+if(r==null){
         
-        tableaureclam.setItems(oc);
+           System.out.println("Aucune reclamation séléctionné");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucune reclamation séléctionné");
+
+            alert.showAndWait();
+     
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                         .getResource("ModifierReclamationFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+
+       ModifierReclamationFXMLController mr= loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        int as=tableaureclam.getSelectionModel().getSelectedItem().getId();
+        String sub = tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation();
+        
+       // String content = tableaureclam.getSelectionModel().getSelectedItem().getContent();
+        
+       
+        
+        mr.setData(tableaureclam.getSelectionModel().getSelectedItem().getId(),
+                tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation()
+                // tableaureclam.getSelectionModel().getSelectedItem().getContent()
+                 );
+                 
+                 
+       
+        } catch(IOException ex)
+    {
+     System.out.println("eer");
+}
+        }
+
+}
+     
+        /* public void refresh(boolean x){
+    if(x==true){
+        
+             ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.refreshReclam();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+       
+           description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+                  
+         tableaureclam.setItems(myList);
+        }
+    else
+    {}
     }*/
-   
-  
+
+    @FXML
+    private void refresh(ActionEvent event) {
+       
+        
+             ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.refreshReclam();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+       
+           description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+                  
+         tableaureclam.setItems(myList);
+    
+    }
 }
